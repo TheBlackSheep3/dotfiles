@@ -446,6 +446,8 @@ vim.o.cursorline = true
 vim.o.listchars="eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣"
 vim.keymap.set('n', '<C-S>', ':wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
 vim.keymap.set('i', '<C-S>', '<C-c>:wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
+vim.keymap.set('n', '<CS-S>', ':wall<cr>:sus<cr>', { silent = true, desc = 'Write all buffers and suspend Neovim' })
+vim.keymap.set('i', '<CS-S>', '<C-c>:wall<cr>:sus<cr>', { silent = true, desc = 'Write all buffers and suspend Neovim' })
 vim.keymap.set('n', '<leader>n', ':cn<cr>', { silent = true, desc = 'Jump to next quickfix error' })
 vim.keymap.set('n', '<leader>p', ':cp<cr>', { silent = true, desc = 'Jump to previous quickfix error' })
 vim.keymap.set('n', '<leader>j', ']c', { silent = true, desc = 'Jump to start of next change' })
