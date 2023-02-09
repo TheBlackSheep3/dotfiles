@@ -441,8 +441,9 @@ require("todo-comments").setup()
 -- [[ Configure Trouble ]]
 require("trouble").setup()
 
--- change default shell to Powershell
-vim.o.shell = "powershell -noexit \"cat ~/.startup.ps1|Invoke-Expression\""
+-- change default shell to Bash
+vim.o.shell = "bash"
+vim.o.shellcmdflag = "-c"
 
 -- personal settings
 vim.o.scrolloff = 8
