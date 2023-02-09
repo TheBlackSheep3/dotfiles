@@ -49,6 +49,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
+  use 'kdheepak/lazygit.nvim' -- lazygit needs to be installed on the system
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -450,7 +451,7 @@ vim.keymap.set('n', '<leader>n', ':cn<cr>', { silent = true, desc = 'Jump to nex
 vim.keymap.set('n', '<leader>p', ':cp<cr>', { silent = true, desc = 'Jump to previous quickfix error' })
 vim.keymap.set('n', '<leader>j', ']c', { silent = true, desc = 'Jump to start of next change' })
 vim.keymap.set('n', '<leader>k', '[c', { silent = true, desc = 'Jump to start of previous change' })
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true, desc = 'Exit Terminal' })
+vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>', { silent = true, desc = 'Exit Terminal' })
 opts = { silent = true, desc = '[T]oggle line [n]umbers' }
 vim.keymap.set('t', '<leader>tn', '<C-\\><C-o>:set number! relativenumber!<cr>', opts)
 vim.keymap.set('n', '<leader>tn', ':set number! relativenumber!<cr>', opts)
@@ -458,3 +459,4 @@ local opts = { silent = true, desc = 'Toggle printing of whitespace charaters' }
 vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
 vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
 vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
+vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Launch [L]azy[G]it' })
