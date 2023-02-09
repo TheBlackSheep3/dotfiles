@@ -440,23 +440,21 @@ require("todo-comments").setup()
 -- [[ Configure Trouble ]]
 require("trouble").setup()
 
--- change default shell to Powershell
-vim.o.shell = "powershell -noexit \"cat ~/.startup.ps1|Invoke-Expression\""
-
 -- personal settings
 vim.o.scrolloff = 8
 vim.o.cursorline = true
 vim.o.listchars="eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣"
 vim.keymap.set('n', '<C-S>', ':wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
+vim.keymap.set('i', '<C-S>', '<C-c>:wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
 vim.keymap.set('n', '<leader>n', ':cn<cr>', { silent = true, desc = 'Jump to next quickfix error' })
 vim.keymap.set('n', '<leader>p', ':cp<cr>', { silent = true, desc = 'Jump to previous quickfix error' })
 vim.keymap.set('n', '<leader>j', ']c', { silent = true, desc = 'Jump to start of next change' })
 vim.keymap.set('n', '<leader>k', '[c', { silent = true, desc = 'Jump to start of previous change' })
-local opts = { silent = true, desc = 'Toggle printing of whitespace charaters' }
-vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
-vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
-vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true, desc = 'Exit Terminal' })
 opts = { silent = true, desc = '[T]oggle line [n]umbers' }
 vim.keymap.set('t', '<leader>tn', '<C-\\><C-o>:set number! relativenumber!<cr>', opts)
 vim.keymap.set('n', '<leader>tn', ':set number! relativenumber!<cr>', opts)
+local opts = { silent = true, desc = 'Toggle printing of whitespace charaters' }
+vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
+vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
+vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
