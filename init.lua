@@ -46,6 +46,7 @@ require('packer').startup(function(use)
   }
 
   use 'mhartington/formatter.nvim' -- install Formatter Plugin
+  use 'WhoIsSethDaniel/mason-tool-installer.nvim' -- for installing Mason tools automatically
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
@@ -434,6 +435,16 @@ require("todo-comments").setup()
 -- [[ Configure Trouble ]]
 -- see `:help trouble`
 require("trouble").setup()
+
+-- Ensure formatters are installed
+require("mason-tool-installer").setup {
+  ensure_installed = {
+    'clang-format',
+    'rustfmt',
+  },
+  auto_update = true,
+  debounce_hours = 3,
+}
 
 -- [[ Configure formatter ]]
 -- see `:help formatter`
