@@ -342,11 +342,13 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  -- tsserver = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  clangd = {},
+  rust_analyzer = {},
+  pylsp = {},
+  texlab = {},
 
   sumneko_lua = {
     Lua = {
