@@ -440,6 +440,20 @@ local util = require "formatter.util"
 require("formatter").setup {
   logging = true,
   log_level = vim.log.levels.WARN,
+  filetype = {
+    rust = {
+      require("formatter.filetypes.rust").rustfmt
+    },
+    cpp = {
+      require("formatter.filetypes.cpp").clangformat
+    },
+    c = {
+      require("formatter.filetypes.c").clangformat
+    },
+    ["*"] = {
+      require("formatter.filetypes.any").remove_trailing_whitespace
+    }
+  }
 }
 
 -- personal settings
