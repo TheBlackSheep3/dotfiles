@@ -45,6 +45,8 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
+  use 'mhartington/formatter.nvim' -- install Formatter Plugin
+
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -332,11 +334,6 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
 end
 
 -- Enable the following language servers
@@ -442,6 +439,14 @@ require("todo-comments").setup()
 -- [[ Configure Trouble ]]
 -- see `:help trouble`
 require("trouble").setup()
+
+-- [[ Configure formatter ]]
+-- see `:help formatter`
+local util = require "formatter.util"
+require("formatter").setup {
+  logging = true,
+  log_level = vim.log.levels.WARN,
+}
 
 -- change default shell to Bash
 vim.o.shell = "bash"
