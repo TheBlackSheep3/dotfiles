@@ -338,6 +338,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   clangd = {},
+  csharp_ls = {},
   rust_analyzer = {},
   pylsp = {},
   texlab = {},
