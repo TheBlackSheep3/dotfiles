@@ -444,6 +444,10 @@ require("todo-comments").setup()
 require("trouble").setup()
 
 -- personal settings
+local tabwidth = 2
+vim.o.tabstop = tabwidth
+vim.o.shiftwidth = tabwidth
+vim.o.expandtab = false
 vim.o.scrolloff = 8
 vim.o.cursorline = true
 vim.o.listchars="eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣"
