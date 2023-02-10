@@ -45,6 +45,8 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
+  use 'mhartington/formatter.nvim' -- install Formatter Plugin
+
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -53,7 +55,6 @@ require('packer').startup(function(use)
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
@@ -172,13 +173,6 @@ require('lualine').setup {
 
 -- Enable Comment.nvim
 require('Comment').setup()
-
--- Enable `lukas-reineke/indent-blankline.nvim`
--- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = false,
-}
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -332,11 +326,6 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
 end
 
 -- Enable the following language servers
@@ -345,11 +334,13 @@ end
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
+  -- tsserver = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
+  clangd = {},
+  rust_analyzer = {},
+  pylsp = {},
+  texlab = {},
 
   sumneko_lua = {
     Lua = {
@@ -442,6 +433,14 @@ require("todo-comments").setup()
 -- [[ Configure Trouble ]]
 -- see `:help trouble`
 require("trouble").setup()
+
+-- [[ Configure formatter ]]
+-- see `:help formatter`
+local util = require "formatter.util"
+require("formatter").setup {
+  logging = true,
+  log_level = vim.log.levels.WARN,
+}
 
 -- change default shell to Bash
 vim.o.shell = "bash"
