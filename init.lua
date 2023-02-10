@@ -402,7 +402,7 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete({}),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -436,12 +436,18 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 
 -- [[ Configure todo-comments ]]
+-- see `:help todo-comments`
 require("todo-comments").setup()
 
 -- [[ Configure Trouble ]]
+-- see `:help trouble`
 require("trouble").setup()
 
 -- personal settings
+local tabwidth = 2
+vim.o.tabstop = tabwidth
+vim.o.shiftwidth = tabwidth
+vim.o.expandtab = false
 vim.o.scrolloff = 8
 vim.o.cursorline = true
 vim.o.listchars="eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣"
@@ -454,10 +460,10 @@ vim.keymap.set('n', '<leader>p', ':cp<cr>', { silent = true, desc = 'Jump to pre
 vim.keymap.set('n', '<leader>j', ']c', { silent = true, desc = 'Jump to start of next change' })
 vim.keymap.set('n', '<leader>k', '[c', { silent = true, desc = 'Jump to start of previous change' })
 vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>', { silent = true, desc = 'Exit Terminal' })
-opts = { silent = true, desc = '[T]oggle line [n]umbers' }
+local opts = { silent = true, desc = '[T]oggle line [n]umbers' }
 vim.keymap.set('t', '<leader>tn', '<C-\\><C-o>:set number! relativenumber!<cr>', opts)
 vim.keymap.set('n', '<leader>tn', ':set number! relativenumber!<cr>', opts)
-local opts = { silent = true, desc = 'Toggle printing of whitespace charaters' }
+opts = { silent = true, desc = 'Toggle printing of whitespace charaters' }
 vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
 vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
 vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
