@@ -454,10 +454,29 @@ require("mason-tool-installer").setup {
 -- [[ Configure formatter ]]
 -- see `:help formatter`
 local util = require "formatter.util"
+local function remove_trailing_cr(input)
+  for i, line in pairs(input) do
+    input[i] = line:gsub("\r", "")
+  end
+end
 require("formatter").setup {
   logging = true,
   log_level = vim.log.levels.WARN,
   filetype = {
+    cs = {
+      function()
+        return {
+          exe = "dotnet csharpier",
+          args = {
+            "--skip-write",
+            "--write-stdout",
+            util.get_current_buffer_file_path(),
+          },
+          stdin = true,
+          transform = remove_trailing_cr,
+        }
+      end
+    },
     ["*"] = {
       function()
         return {
