@@ -446,6 +446,7 @@ require("mason-tool-installer").setup {
   ensure_installed = {
     'clang-format',
     'rustfmt',
+    'csharpier',
   },
   auto_update = true,
   debounce_hours = 3,
@@ -455,9 +456,13 @@ require("mason-tool-installer").setup {
 -- see `:help formatter`
 local util = require "formatter.util"
 local function remove_trailing_cr(input)
+  if (nil == input) then
+    return nil
+  end
   for i, line in pairs(input) do
     input[i] = line:gsub("\r", "")
   end
+  return input
 end
 require("formatter").setup {
   logging = true,
