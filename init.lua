@@ -366,7 +366,12 @@ require('mason').setup()
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = {
+  'clangd',
+  'csharp_ls',
+  'rust_analyzer',
+  'pylsp',
+  'texlab'}
 }
 
 mason_lspconfig.setup_handlers {
