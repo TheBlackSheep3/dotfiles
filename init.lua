@@ -452,11 +452,23 @@ local util = require "formatter.util"
 require("formatter").setup {
   logging = true,
   log_level = vim.log.levels.WARN,
+  filetype = {
+    ["*"] = {
+      function()
+        return {
+          exe = "\"C:\\Program Files\\Git\\usr\\bin\\sed.exe\"",
+          args = {
+            "'s/[ \t]*$//'",
+          },
+          stdin = true,
+        }
+      end
+    }
+  }
 }
 
 -- change default shell to Bash
-vim.o.shell = "bash"
-vim.o.shellcmdflag = "-c"
+vim.o.shell = "cmd"
 
 -- personal settings
 local tabwidth = 2
