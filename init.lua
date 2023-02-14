@@ -460,7 +460,7 @@ vim.o.shiftwidth = tabwidth
 vim.o.expandtab = false
 vim.o.scrolloff = 8
 vim.o.cursorline = true
-vim.o.listchars="eol:$,tab:>-,trail:~,extends:>,precedes:<,space:␣"
+vim.o.listchars="eol:$,tab:>_,trail:~,extends:>,precedes:<,space:␣"
 vim.keymap.set('n', '<C-S>', ':wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
 vim.keymap.set('i', '<C-S>', '<C-c>:wall<cr>:qall<cr>', { silent = true, desc = 'Write all buffers and close windows' })
 vim.keymap.set('n', '<leader>n', ':cn<cr>', { silent = true, desc = 'Jump to next quickfix error' })
