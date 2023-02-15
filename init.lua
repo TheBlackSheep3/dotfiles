@@ -492,3 +492,8 @@ vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
 vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
 vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Launch [L]azy[G]it' })
+-- Todo keymappings
+vim.keymap.set('n', '<leader>tf', ':TodoTelescope keywords=FIX,FIXME,BUG,FIXIT,ISSUE<CR>', { silent = true, desc = 'Open [T]odos [F]ixes' })
+vim.keymap.set('n', '<leader>tw', ':TodoTelescope keywords=WARNING,WARN,XXX<CR>', { silent = true, desc = 'Open [T]odos [W]arnings' })
+vim.keymap.set('n', '<leader>tt', ':TodoTelescope keywords=TODO<CR>', { silent = true, desc = 'Open [T]odos [T]odo' })
+vim.keymap.set('n', '<leader>td', ':TodoTelescope<CR>', { silent = true, desc = 'Open [T]o[d]os' })
