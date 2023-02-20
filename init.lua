@@ -484,6 +484,7 @@ vim.keymap.set('n', '<leader>p', ':cp<cr>', { silent = true, desc = 'Jump to pre
 vim.keymap.set('n', '<leader>j', ']c', { silent = true, desc = 'Jump to start of next change' })
 vim.keymap.set('n', '<leader>k', '[c', { silent = true, desc = 'Jump to start of previous change' })
 vim.keymap.set('t', '<leader><Esc>', '<C-\\><C-n>', { silent = true, desc = 'Exit Terminal' })
+vim.keymap.set('t', '<C-W>', '<C-\\><C-n><C-W>', { desc = 'Window commands for Terminal'})
 local opts = { silent = true, desc = '[T]oggle line [n]umbers' }
 vim.keymap.set('t', '<leader>tn', '<C-\\><C-o>:set number! relativenumber!<cr>', opts)
 vim.keymap.set('n', '<leader>tn', ':set number! relativenumber!<cr>', opts)
