@@ -538,4 +538,4 @@ vim.keymap.set('n', '<leader>tw', ':TodoTelescope keywords=WARNING,WARN,XXX<CR>'
 vim.keymap.set('n', '<leader>tt', ':TodoTelescope keywords=TODO<CR>', { silent = true, desc = 'Open [T]odos [T]odo' })
 vim.keymap.set('n', '<leader>td', ':TodoTelescope<CR>', { silent = true, desc = 'Open [T]o[d]os' })
 -- keymapping for time stamps
-vim.keymap.set('n', '<leader>ts', ':lua vim.api.nvim_set_current_line(vim.api.nvim_get_current_line()..os.date("*t").hour..":"..os.date("*t").min)<cr>', { silent = true, desc = 'Append current [T]ime[s]tamp' })
+vim.keymap.set('n', '<leader>ts', ':lua vim.api.nvim_set_current_line(vim.api.nvim_get_current_line()..os.date("%H:%M"))<cr>', { silent = true, desc = 'Append current [T]ime[s]tamp' })
