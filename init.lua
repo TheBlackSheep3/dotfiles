@@ -69,6 +69,9 @@ require('packer').startup(function(use)
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"  } -- Todos
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" } -- Trouble useful for todos
 
+  -- Add support for nushell language
+  use { "LhKipp/nvim-nu", { run = ":TSInstall nu" } }
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -451,6 +454,11 @@ local util = require "formatter.util"
 require("formatter").setup {
   logging = true,
   log_level = vim.log.levels.WARN,
+}
+
+-- [[ Configure nvim-nu ]]
+require("nu").setup{
+  use_lsp_features = false
 }
 
 -- personal settings
