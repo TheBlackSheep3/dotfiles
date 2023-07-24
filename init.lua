@@ -53,6 +53,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
   use 'kdheepak/lazygit.nvim' -- lazygit needs to be installed on the system
+  use 'aspeddro/gitui.nvim' -- gitui needs to be installed on the system
 
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
@@ -68,6 +69,7 @@ require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim' -- Gruvbox Theme (it is the best change my mind)
   use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"  } -- Todos
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" } -- Trouble useful for todos
+  use { "rust-lang/rust.vim" }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -186,6 +188,9 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+-- gitui
+require('gitui').setup()
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -477,6 +482,7 @@ vim.keymap.set('n', '<F5>', ':set list!<CR>', opts)
 vim.keymap.set('i', '<F5>', '<C-o>:set list!<CR>', opts)
 vim.keymap.set('c', '<F5>', '<C-c>:set list!<CR>', opts)
 vim.keymap.set('n', '<leader>lg', ':LazyGit<CR>', { silent = true, desc = 'Launch [L]azy[G]it' })
+vim.keymap.set('n', '<leader>ui', ':Gitui<CR>', { silent = true, desc = 'Launch Git[ui]' })
 -- Todo keymappings
 vim.keymap.set('n', '<leader>tf', ':TodoTelescope keywords=FIX,FIXME,BUG,FIXIT,ISSUE<CR>', { silent = true, desc = 'Open [T]odos [F]ixes' })
 vim.keymap.set('n', '<leader>tw', ':TodoTelescope keywords=WARNING,WARN,XXX<CR>', { silent = true, desc = 'Open [T]odos [W]arnings' })
