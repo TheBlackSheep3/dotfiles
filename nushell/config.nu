@@ -768,7 +768,7 @@ $env.config = {
 }
 
 # aliases
-alias lg = lazygit
+alias lg = lazygit --use-config-dir ~/.dotfiles/lazygit
 alias gu = gitui
 alias mvnp = mvn process-resources
 alias mvnc = mvn compile
