@@ -1,0 +1,14 @@
+(
+    enter: Some("Enter"),
+    home: Some("home"),
+    end: Some("end"),
+    page_up: Some("pgup"),
+    page_down: Some("pgdn"),
+    tag: Some("tab"),
+    backspace: Some("backspace"),
+    delte: Some("del"),
+    esc: Some("esc"),
+    control: Some("ctrl-"),
+    shift: Some("shift-"),
+    alt: Some("alt")
+)
