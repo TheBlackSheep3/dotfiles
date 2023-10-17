@@ -790,3 +790,6 @@ def svg-to-png [
         `c:\Program Files\Inkscape\bin\inkscape.exe` $svg_file $"--export-filename=($svg_file | path parse | get stem)_($width)x($height).png" $"--export-width=($width)" $"--export-height=($height)"
     }
 }
+def "check-update cargo" [] {
+    cargo install-update --list | lines | str trim | split column " " --collapse-empty "Package" "Installed" "Latest" "Needs_update"| skip 3 | drop 1
+}
