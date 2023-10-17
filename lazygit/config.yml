@@ -1,0 +1,62 @@
+customCommands:
+  - key: "<c-f>"
+    command: "git fetch --prune"
+    context: "global"
+  - key: "<c-r>"
+    command: "release-helper --fail-on-snapshot-dependencies"
+    context: "localBranches"
+    stream: true
+    showOutput: false
+    description: "Use release-helper to create a release with default parameters"
+  - key: "<c-e>"
+    command: "release-helper --release {{index .PromptResponses 0}} {{index .PromptResponses 1}} {{index .PromptResponses 2}} --fail-on-snapshot-dependencies"
+    context: "localBranches"
+    stream: true
+    showOutput: false
+    description: "Use release-helper to create a release with custom parameters"
+    prompts:
+      - type: "input"
+        title: "Release version:"
+        initialValue: ""
+      - type: "menu"
+        title: "Release target:"
+        options:
+          - value: "--tag"
+            name: "Tag"
+            description: "Create a release tag"
+          - value: "--branch"
+            name: "Branch"
+            description: "Create a release branch"
+      - type: "menu"
+        title: "Increase current version?"
+        options:
+          - value: "--no-increase"
+            name: "don't increase"
+            description: "Do not increase the version of the pom file to the next snapshot version"
+          - value: "--increase"
+            name: "increase"
+            description: "Increase the version of the pom file to the next snapshot version"
+  - key: "<c-d>"
+    command: "dotnet csharpier ."
+    context: "global"
+    description: "beautify the C# code formatting"
+    showOutput: false
+    stream: true
+    loadingText: "beatifying C# code..."
+  - key: "<f5>"
+    command: "mvn {{index .PromptResponses 0}}"
+    context: "global"
+    description: "run maven ..."
+    loadingText: "running maven command..."
+    stream: true
+    showOutput: false
+    prompts:
+      - type: "menu"
+        title: "Which phase?"
+        options:
+          - value: "process-resources"
+          - value: "compile"
+          - value: "test"
+          - value: "verify"
+services:
+  "bitbucket.bdalswrd.de": "bitbucketServer:bitbucket.bdalswrd.de"
