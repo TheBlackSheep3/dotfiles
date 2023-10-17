@@ -793,3 +793,9 @@ def svg-to-png [
 def "check-update cargo" [] {
     cargo install-update --list | lines | str trim | split column " " --collapse-empty "Package" "Installed" "Latest" "Needs_update"| skip 3 | drop 1
 }
+def "check-update winget" [] {
+    winget upgrade
+}
+def "check-update choco" [] {
+    choco outdated
+}
