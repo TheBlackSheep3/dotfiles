@@ -2,6 +2,12 @@ customCommands:
   - key: "<c-f>"
     command: "git fetch --prune"
     context: "global"
+  - key: "<c-p>"
+    command: "bruker-publisher {{ .SelectedTag.Name }} --copy-release-path"
+    context: "tags"
+    stream: true
+    showOutput: false
+    description: "Use bruker-publisher to copy released files to share"
   - key: "<c-r>"
     command: "release-helper --fail-on-snapshot-dependencies"
     context: "localBranches"
