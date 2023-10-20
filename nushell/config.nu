@@ -770,10 +770,13 @@ alias mvnp = mvn process-resources
 alias mvnc = mvn compile
 alias mvnt = mvn test
 alias mvnv = mvn verify
+alias outlook = `C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE`
 
 # custom commands
 def pretty-log [] { git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at }
+
 def clean [] { git clean -diX ; mvnp }
+
 def svg-to-png [
     svg_file: string
     width: int
@@ -786,12 +789,29 @@ def svg-to-png [
         `c:\Program Files\Inkscape\bin\inkscape.exe` $svg_file $"--export-filename=($svg_file | path parse | get stem)_($width)x($height).png" $"--export-width=($width)" $"--export-height=($height)"
     }
 }
+
 def "check-update cargo" [] {
     cargo install-update --list | lines | str trim | split column " " --collapse-empty "Package" "Installed" "Latest" "Needs_update"| skip 3 | drop 1
 }
+
 def "check-update winget" [] {
     winget upgrade
 }
+
 def "check-update choco" [] {
     choco outdated
+}
+
+def calender-week [] {
+    echo $"hello current calendar week: (date now | format date %W)"
+}
+
+def week-report [--last-week (-l)] {
+    mut kw = 0
+    if $last_week {
+        $kw = (date now | format date %W | into int) - 1
+    } else {
+        $kw = (date now | format date %W | into int)
+    }
+    outlook -c ipm.note -m $"\"Karsten.Bohne@bruker.com?subject=Wochenbericht%20KW%20($kw)&body=Hallo%20Karsten%2c%0a%0a\""
 }
