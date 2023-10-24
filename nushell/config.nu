@@ -802,16 +802,20 @@ def "check-update choco" [] {
     choco outdated
 }
 
+def get-calender-week [] {
+    date now | format date %W | into int
+}
+
 def calender-week [] {
-    echo $"hello current calendar week: (date now | format date %W)"
+    echo $"current calendar week: (get-calender-week)"
 }
 
 def week-report [--last-week (-l)] {
     mut kw = 0
     if $last_week {
-        $kw = (date now | format date %W | into int) - 1
+        $kw = ((date now) - 7day | format date %W | into int)
     } else {
-        $kw = (date now | format date %W | into int)
+        $kw = (get-calender-week)
     }
     outlook -c ipm.note -m $"\"Karsten.Bohne@bruker.com?subject=Wochenbericht%20KW%20($kw)&body=Hallo%20Karsten%2c%0a%0a\""
 }
