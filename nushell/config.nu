@@ -815,3 +815,10 @@ def week-report [--last-week (-l)] {
     }
     outlook -c ipm.note -m $"\"Karsten.Bohne@bruker.com?subject=Wochenbericht%20KW%20($kw)&body=Hallo%20Karsten%2c%0a%0a\""
 }
+
+# custom completions
+source ~/.dotfiles/nushell/nu_scripts/custom-completions/cargo/cargo-completions.nu
+source ~/.dotfiles/nushell/nu_scripts/custom-completions/git/git-completions.nu
+source ~/.dotfiles/nushell/nu_scripts/custom-completions/make/make-completions.nu
+source ~/.dotfiles/nushell/release-helper-completions.nu
+source ~/.dotfiles/nushell/bruker-publisher-completions.nu
