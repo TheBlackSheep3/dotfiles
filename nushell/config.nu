@@ -829,3 +829,6 @@ source ~/.dotfiles/nushell/nu_scripts/custom-completions/make/make-completions.n
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/winget/winget-completions.nu
 source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
+
+# load starship config
+use ~/.cache/starship/init.nu
