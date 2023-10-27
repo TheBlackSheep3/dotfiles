@@ -814,3 +814,6 @@ source ~/.dotfiles/nushell/nu_scripts/custom-completions/git/git-completions.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/make/make-completions.nu
 source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
+
+# load starship config
+use ~/.cache/starship/init.nu
