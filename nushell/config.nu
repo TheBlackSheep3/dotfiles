@@ -816,4 +816,5 @@ source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
 
 # load starship config
+# see https://starship.rs/ for more information
 use ~/.cache/starship/init.nu
