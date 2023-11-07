@@ -2,14 +2,15 @@ def "nu-complete release-helper next versions" [] {
     git tag
         | lines
         | parse '{major}.{minor}.{patch}.{revision}'
+        | each {|e|{major: ($e.major | into int), minor: ($e.minor|into int), patch: ($e.patch | into int), revision: ($e.revision | into int)}}
         | sort --reverse
-        | first 
-        | 
+        | first
+        |
             [
-                { major: ($in.major | into int), minor: ($in.minor | into int), patch: ($in.patch | into int), revision: (($in.revision | into int) + 1) }
-                { major: ($in.major | into int), minor: ($in.minor | into int), patch: (($in.patch | into int) + 1), revision: 0 }
-                { major: ($in.major | into int), minor: (($in.minor | into int) + 1), patch: 0, revision: 0 }
-                { major: (($in.major | into int) + 1), minor: 0, patch: 0, revision: 0 }
+                { major: $in.major, minor: $in.minor, patch: $in.patch, revision: ($in.revision + 1) }
+                { major: $in.major, minor: $in.minor, patch: ($in.patch + 1), revision: 0 }
+                { major: $in.major, minor: ($in.minor + 1), patch: 0, revision: 0 }
+                { major: ($in.major + 1), minor: 0, patch: 0, revision: 0 }
             ]
         | each { |v| $"($v.major).($v.minor).($v.patch).($v.revision)" }
 }
