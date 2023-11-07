@@ -771,6 +771,8 @@ alias mvnc = mvn compile
 alias mvnt = mvn test
 alias mvnv = mvn verify
 alias outlook = `C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE`
+alias cat = bat
+source ~/.dotfiles/nushell/nu_scripts/aliases/eza/eza-aliases.nu
 
 # custom commands
 def pretty-log [] { git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at }
@@ -820,6 +822,10 @@ def week-report [--last-week (-l)] {
     outlook -c ipm.note -m $"\"Karsten.Bohne@bruker.com?subject=Wochenbericht%20KW%20($kw)&body=Hallo%20Karsten%2c%0a%0a\""
 }
 
+def "cargo installed" [] {
+    cargo install --list | lines | parse -r "(?P<package>[a-z_-]+) v(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+):" | each { |e| {package:$e.package, version:{major:$e.major, minor:$e.minor, patch:$e.patch}}}
+}
+
 source ~/.dotfiles/nushell/bitbucket.nu
 
 # custom completions
@@ -831,4 +837,5 @@ source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
 
 # load starship config
+# see https://starship.rs/ for more information
 use ~/.cache/starship/init.nu
