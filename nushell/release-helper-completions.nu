@@ -1,7 +1,7 @@
 def "nu-complete release-helper next versions" [] {
     git tag
         | lines
-        | parse '{major}.{minor}.{patch}.{revision}'
+        | parse -r '^(?P<major>\d+)\.(?P<minor>\d+)\.(?P<patch>\d+)\.(?P<revision>\d+)$'
         | each {|e|{major: ($e.major | into int), minor: ($e.minor|into int), patch: ($e.patch | into int), revision: ($e.revision | into int)}}
         | sort --reverse
         | first
