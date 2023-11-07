@@ -771,6 +771,7 @@ alias mvnc = mvn compile
 alias mvnt = mvn test
 alias mvnv = mvn verify
 alias outlook = `C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE`
+alias cat = bat
 
 # custom commands
 def pretty-log [] { git log --pretty=%h»¦«%aN»¦«%s»¦«%aD | lines | split column "»¦«" sha1 committer desc merged_at }
