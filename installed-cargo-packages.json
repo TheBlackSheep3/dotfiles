@@ -1,0 +1,146 @@
+[
+  {
+    "package": "bat",
+    "version":
+    {
+      "major": "0",
+      "minor": "24",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "cargo-cache",
+    "version":
+    {
+      "major": "0",
+      "minor": "8",
+      "patch": "3"
+    }
+  },
+  {
+    "package": "cargo-deny",
+    "version":
+    {
+      "major": "0",
+      "minor": "14",
+      "patch": "3"
+    }
+  },
+  {
+    "package": "cargo-info",
+    "version":
+    {
+      "major": "0",
+      "minor": "7",
+      "patch": "6"
+    }
+  },
+  {
+    "package": "cargo-update",
+    "version":
+    {
+      "major": "13",
+      "minor": "1",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "cargo-watch",
+    "version":
+    {
+      "major": "8",
+      "minor": "4",
+      "patch": "1"
+    }
+  },
+  {
+    "package": "evcxr_repl",
+    "version":
+    {
+      "major": "0",
+      "minor": "16",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "eza",
+    "version":
+    {
+      "major": "0",
+      "minor": "15",
+      "patch": "2"
+    }
+  },
+  {
+    "package": "fd-find",
+    "version":
+    {
+      "major": "8",
+      "minor": "7",
+      "patch": "1"
+    }
+  },
+  {
+    "package": "git-delta",
+    "version":
+    {
+      "major": "0",
+      "minor": "16",
+      "patch": "5"
+    }
+  },
+  {
+    "package": "hyperfine",
+    "version":
+    {
+      "major": "1",
+      "minor": "18",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "nu",
+    "version":
+    {
+      "major": "0",
+      "minor": "86",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "ripgrep",
+    "version":
+    {
+      "major": "13",
+      "minor": "0",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "speedtest-rs",
+    "version":
+    {
+      "major": "0",
+      "minor": "1",
+      "patch": "4"
+    }
+  },
+  {
+    "package": "starship",
+    "version":
+    {
+      "major": "1",
+      "minor": "16",
+      "patch": "0"
+    }
+  },
+  {
+    "package": "wiki-tui",
+    "version":
+    {
+      "major": "0",
+      "minor": "8",
+      "patch": "2"
+    }
+  }
+]
