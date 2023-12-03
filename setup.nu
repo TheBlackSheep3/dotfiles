@@ -14,7 +14,7 @@ ln -s ~/.dotfiles/gitui/theme.ron ~/.config/gitui/theme.ron
 ln -s ~/.dotfiles/lazygit/config.yml `~/Library/Application Support/lazygit/config.yml`
 
 # setup neovim
-ln -s ~/.dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 
 # setup nushell
 ln -s ~/.dotfiles/nushell/env.nu `~/Library/Application Support/nushell/env.nu`
