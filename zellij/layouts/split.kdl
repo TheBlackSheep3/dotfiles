@@ -1,0 +1,17 @@
+layout {
+    pane size=1 borderless=true split_direction="vertical" {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane size="70%" command="nvim"
+        pane size="30%" split_direction="horizontal" {
+            pane size=5 borderless=true command="tclock"  {
+                args "clock" "--no-date" "--no-seconds"
+            }
+            pane name="shell"
+        }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}

@@ -818,6 +818,7 @@ def "cargo installed" [] {
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/cargo/cargo-completions.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/git/git-completions.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/make/make-completions.nu
+source ~/.dotfiles/nushell/nu_scripts/custom-completions/zellij/zellij-completions.nu
 source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
 

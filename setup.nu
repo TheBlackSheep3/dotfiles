@@ -19,3 +19,6 @@ ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
 # setup nushell
 ln -s ~/.dotfiles/nushell/env.nu `~/Library/Application Support/nushell/env.nu`
 ln -s ~/.dotfiles/nushell/config.nu `~/Library/Application Support/nushell/config.nu`
+
+# setup zellij
+ln -s ~/.dotfiles/zellij ~/.config/zellij
