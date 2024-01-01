@@ -7,7 +7,7 @@ layout {
         pane size="30%" split_direction="horizontal" {
             pane size=5 split_direction="vertical" {
                 pane borderless=true command="porsmo"
-                pane borderless=true command="tclock" {
+                pane size=38 borderless=true command="tclock" {
                     args "clock" "--no-date" "--no-seconds"
                 }
             }
