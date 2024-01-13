@@ -74,6 +74,17 @@ require('packer').startup(function(use)
   -- Add support for nushell language
   use { "LhKipp/nvim-nu", { run = ":TSInstall nu" } }
 
+  use {
+   "epwalsh/obsidian.nvim",
+    tag = "*",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  }
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -232,7 +243,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'vim', 'markdown', 'markdown_inline' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -490,6 +501,64 @@ require("formatter").setup {
 require("nu").setup{
   use_lsp_features = false
 }
+
+require("obsidian").setup({
+  workspaces = {
+    {
+      name = "digital-notebook",
+      path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/digital-notebook",
+      overrides = {
+        disable_frontmatter = false,
+      }
+    },
+    {
+      name = "dnd",
+      path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/dungeons and dragons",
+    },
+  },
+  disable_frontmatter = true,
+   ui = {
+    enable = true,  -- set to false to disable all additional syntax features
+    update_debounce = 200,  -- update delay after a text change (in milliseconds)
+    -- Define how various check-boxes are displayed
+    checkboxes = {
+      -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+      ["x"] = { char = "", hl_group = "ObsidianDone" },
+      [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+      ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+      -- Replace the above with this if you don't have a patched font:
+      -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+      -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+
+      -- You can also add more custom ones...
+    },
+    external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+    -- Replace the above with this if you don't have a patched font:
+    -- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+    reference_text = { hl_group = "ObsidianRefText" },
+    highlight_text = { hl_group = "ObsidianHighlightText" },
+    tags = { hl_group = "ObsidianTag" },
+    hl_groups = {
+      -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
+      ObsidianTodo = { bold = true, fg = "#f78c6c" },
+      ObsidianDone = { bold = true, fg = "#89ddff" },
+      ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
+      ObsidianTilde = { bold = true, fg = "#ff5370" },
+      ObsidianRefText = { underline = true, fg = "#c792ea" },
+      ObsidianExtLinkIcon = { fg = "#c792ea" },
+      ObsidianTag = { italic = true, fg = "#89ddff" },
+      ObsidianHighlightText = { bg = "#75662e" },
+    },
+  },
+  -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+  -- URL it will be ignored but you can customize this behavior here.
+  follow_url_func = function(url)
+    -- Open the URL in the default web browser.
+    vim.fn.jobstart({"open", url})  -- Mac OS
+    -- vim.fn.jobstart({"xdg-open", url})  -- linux
+  end,
+})
 
 -- personal settings
 local tabwidth = 2
