@@ -812,6 +812,11 @@ def calender-week [] {
     echo $"current calendar week: (get-calender-week)"
 }
 
+def knowledge-vault [] {
+    cd ~/Documents/KNOWLEDGE
+    nvim
+}
+
 def week-report [--last-week (-l)] {
     mut kw = 0
     if $last_week {
@@ -832,7 +837,7 @@ source ~/.dotfiles/nushell/bitbucket.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/cargo/cargo-completions.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/git/git-completions.nu
 source ~/.dotfiles/nushell/nu_scripts/custom-completions/make/make-completions.nu
-source ~/.dotfiles/nushell/nu_scripts/custom-completions/winget/winget-completions.nu
+# source ~/.dotfiles/nushell/nu_scripts/custom-completions/winget/winget-completions.nu
 source ~/.dotfiles/nushell/release-helper-completions.nu
 source ~/.dotfiles/nushell/bruker-publisher-completions.nu
 
